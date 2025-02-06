@@ -1,5 +1,4 @@
-// src/components/Services.tsx
-import React from 'react';
+// src/components/Services.tsx 
 
 const Services = () => {
     return (

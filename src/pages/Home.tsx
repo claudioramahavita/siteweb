@@ -1,5 +1,4 @@
-// src/pages/Home.tsx
-import React from 'react';
+// src/pages/Home.tsx 
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Services from '../components/Services';

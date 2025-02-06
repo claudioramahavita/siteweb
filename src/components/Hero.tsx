@@ -1,6 +1,4 @@
-// src/components/Hero.tsx
-import React from 'react';
-
+// src/components/Hero.tsx 
 const Hero = () => {
     return (
         <section className="h-screen flex flex-col justify-center items-center bg-primary text-center text-white">

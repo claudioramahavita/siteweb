@@ -1,6 +1,4 @@
-// src/components/Footer.tsx
-import React from 'react';
-
+// src/components/Footer.tsx 
 const Footer = () => {
     return (
         <footer className="py-8 bg-black text-center text-white">

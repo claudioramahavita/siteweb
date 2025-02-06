@@ -1,5 +1,4 @@
-// src/components/Navbar.tsx
-import React from 'react';
+// src/components/Navbar.tsx 
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
