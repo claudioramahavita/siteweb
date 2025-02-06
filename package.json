@@ -1,11 +1,5 @@
 {
-"homepage": "https://github.com/claudioramahavita/siteweb",
-"scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-},
+"homepage": "https://github.com/claudioramahavita/siteweb", 
 "name": "siteweb",
   "private": true,
   "version": "0.0.0",
@@ -14,7 +8,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.3.1",
