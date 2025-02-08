@@ -1,15 +1,15 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Autoplay } from 'swiper'; // Importation des modules correctement
-import 'swiper/swiper-bundle.min.css'; // Importation des styles
-import { motion } from 'framer-motion';
+import 'swiper/swiper-bundle.min.css'; // Assure-toi que les styles sont bien importés
 
-// Tu dois appeler `SwiperCore.use()` pour enregistrer les modules
-SwiperCore.use([Navigation, Autoplay]);
+// Importation des modules correctement
+import { Navigation, Autoplay } from 'swiper';
 
+// Assure-toi d'ajouter ces modules dans ton composant
 function Hero() {
     return (
         <section className="h-screen flex items-center justify-center text-center">
             <Swiper
+                modules={[Navigation, Autoplay]} // Enregistrement des modules ici
                 spaceBetween={30}
                 slidesPerView={1}
                 navigation
