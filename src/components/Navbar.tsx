@@ -1,43 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import config from "../config/config";
 
-const Navbar = () => {
-    const [open, setOpen] = useState(false);
+function Navbar() {
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <nav className="bg-gray-900 text-white fixed w-full z-50 shadow-lg">
-            <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-                <Link to="/" className="text-2xl font-bold text-blue-500">{config.site.name}</Link>
-
-                {/* Menu Desktop */}
-                <div className="hidden md:flex space-x-6">
-                    {config.navLinks.map((link, index) => (
-                        <motion.div whileHover={{ scale: 1.1 }} key={index}>
-                            <Link to={link.path} className="hover:text-blue-400 transition">{link.name}</Link>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* Bouton Mobile */}
-                <button onClick={() => setOpen(!open)} className="md:hidden">
-                    ☰
-                </button>
+        <motion.nav
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.5 }}
+            className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${scrolled ? "bg-gray-900 shadow-lg" : "bg-transparent"
+                }`}
+        >
+            <div className="container flex justify-between items-center py-4">
+                <Link to="/" className="text-2xl font-bold text-blue-400">
+                    CREITIC
+                </Link>
+                <ul className="flex space-x-6">
+                    <li><Link to="/" className="hover:text-blue-400">Home</Link></li>
+                    <li><Link to="/services" className="hover:text-blue-400">Services</Link></li>
+                    <li><Link to="/portfolio" className="hover:text-blue-400">Portfolio</Link></li>
+                    <li><Link to="/contact" className="hover:text-blue-400">Contact</Link></li>
+                </ul>
             </div>
-
-            {/* Menu Mobile */}
-            {open && (
-                <div className="md:hidden bg-gray-800 py-2 text-center">
-                    {config.navLinks.map((link, index) => (
-                        <Link key={index} to={link.path} className="block py-2 hover:text-blue-400" onClick={() => setOpen(false)}>
-                            {link.name}
-                        </Link>
-                    ))}
-                </div>
-            )}
-        </nav>
+        </motion.nav>
     );
-};
+}
 
 export default Navbar;
