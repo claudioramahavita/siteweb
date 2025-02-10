@@ -12,4 +12,7 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    outDir: "dist", // Assure-toi que l’output est bien dist
+  },
 })
