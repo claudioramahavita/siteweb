@@ -1,4 +1,4 @@
-name: Deploy Vite site cretic
+name: Deploy Vite site creitic
 
 on:
   push:
@@ -24,10 +24,13 @@ jobs:
       - name: Build the project
         run: npm run build
 
-      - name: Deploy to GitHub Pages
+      - name: Configure Git for Deployment
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          npm run deploy
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/claudioramahavita/siteweb.git
+
+      - name: Deploy to GitHub Pages
+        run: npm run deploy
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Utilisation du token d'accès GitHub
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
