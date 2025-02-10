@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css"; // Style générique pour Swiper
-import "swiper/css/navigation"; // Ajoute le style pour la navigation
-import "swiper/css/autoplay"; // Ajoute le style pour l'autoplay
+import "swiper/swiper-bundle.css"; // Contient l'ensemble des styles
+
+
 
 import { Navigation, Autoplay } from "swiper/modules"; // Importation correcte des modules
 import { motion } from "framer-motion";

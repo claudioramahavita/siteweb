@@ -1,4 +1,10 @@
 {
+  "compilerOptions": {
+    "types": ["swiper"],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
