@@ -25,6 +25,9 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        run: npm run deploy
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          npm run deploy
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Utilisation du token d'accès GitHub comme variable d'environnement
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Utilisation du token d'accès GitHub
