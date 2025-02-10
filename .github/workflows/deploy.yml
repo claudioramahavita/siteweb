@@ -1,4 +1,4 @@
-name: Deploy Vite site creitic
+name: Deploy Vite site cretic
 
 on:
   push:
@@ -9,11 +9,22 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'
-      - run: npm install
-      - run: npm run build
-      - run: npm run deploy
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        run: npm run deploy
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Utilisation du token d'accès GitHub comme variable d'environnement
